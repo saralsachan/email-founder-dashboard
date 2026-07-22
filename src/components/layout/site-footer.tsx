@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+import { SiteShell } from "@/components/layout/site-shell";
+
 const FOOTER_LINKS = [
   { href: "/privacy", label: "Privacy Policy" },
   { href: "/terms", label: "Terms of Service" },
@@ -9,8 +11,8 @@ const FOOTER_LINKS = [
 
 export function SiteFooter() {
   return (
-    <footer className="border-t px-4 py-10 sm:px-6">
-      <div className="mx-auto flex w-full max-w-6xl flex-col gap-8">
+    <footer className="border-t py-10 sm:py-12">
+      <SiteShell className="flex flex-col gap-8">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
           <div className="space-y-2">
             <p className="font-semibold tracking-tight">Founder Dashboard</p>
@@ -36,7 +38,7 @@ export function SiteFooter() {
         <p className="text-xs text-muted-foreground">
           © {new Date().getFullYear()} Founder Dashboard. All rights reserved.
         </p>
-      </div>
+      </SiteShell>
     </footer>
   );
 }

@@ -12,9 +12,13 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 
+import {
+  HeroDashboardPreview,
+  HowItWorksSection,
+} from "@/components/landing/how-it-works";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
-import { HowItWorksSection } from "@/components/landing/how-it-works";
+import { SiteShell } from "@/components/layout/site-shell";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import {
@@ -85,119 +89,129 @@ export default function HomePage() {
     <>
       <SiteHeader showAuthLinks />
       <main className="flex flex-1 flex-col">
-        {/* Hero */}
-        <section className="relative flex min-h-[calc(100svh-3.5rem)] flex-col items-center justify-center overflow-hidden px-4 py-20 sm:px-6 sm:py-24">
+        {/* Hero — full viewport, split on large screens */}
+        <section className="relative flex min-h-[calc(100svh-3.5rem)] items-center overflow-hidden border-b py-16 sm:py-20 lg:py-0">
           <div
             aria-hidden
-            className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,oklch(0.92_0.004_286.32/0.6),transparent)] dark:bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,oklch(0.274_0.006_286.033/0.5),transparent)]"
+            className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_70%_55%_at_15%_20%,oklch(0.94_0.004_286.32/0.7),transparent_55%),radial-gradient(ellipse_50%_40%_at_90%_70%,oklch(0.95_0.01_145/0.25),transparent_50%)] dark:bg-[radial-gradient(ellipse_70%_55%_at_15%_20%,oklch(0.274_0.006_286.033/0.55),transparent_55%),radial-gradient(ellipse_50%_40%_at_90%_70%,oklch(0.3_0.04_145/0.2),transparent_50%)]"
           />
-          <div className="mx-auto flex w-full max-w-4xl flex-col items-center gap-6 text-center sm:gap-8">
-            <Badge className="gap-1.5 rounded-full px-3 py-1" variant="secondary">
-              <Inbox className="size-3.5" />
-              Built for founders who live in Gmail
-            </Badge>
-            <h1 className="text-balance text-4xl font-semibold leading-tight tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
-              Know what matters in your inbox{" "}
-              <span className="text-muted-foreground">
-                before your first coffee
-              </span>
-            </h1>
-            <p className="max-w-2xl text-pretty text-base text-muted-foreground sm:text-lg md:text-xl">
-              Overnight revenue, urgent customer issues, threads waiting on you,
-              and one clear next action — synced from Gmail every 15 minutes.
-            </p>
-            <div className="flex w-full flex-col items-center justify-center gap-3 sm:w-auto sm:flex-row">
-              <Link
-                className={cn(
-                  buttonVariants({ size: "lg" }),
-                  "w-full sm:w-auto",
-                )}
-                href="/login"
+          <SiteShell className="grid w-full items-center gap-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-16 xl:gap-20">
+            <div className="flex max-w-2xl flex-col gap-6 lg:max-w-none lg:py-20 xl:gap-8">
+              <Badge
+                className="w-fit gap-1.5 rounded-full px-3 py-1"
+                variant="secondary"
               >
-                Start 14-day free trial
-                <ArrowRight />
-              </Link>
-              <Link
-                className={cn(
-                  buttonVariants({ size: "lg", variant: "outline" }),
-                  "w-full sm:w-auto",
-                )}
-                href="#how-it-works"
-              >
-                See how it works
-              </Link>
+                <Inbox className="size-3.5" />
+                Built for founders who live in Gmail
+              </Badge>
+              <h1 className="text-balance text-4xl font-semibold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl">
+                Know what matters in your inbox{" "}
+                <span className="text-muted-foreground">
+                  before your first coffee
+                </span>
+              </h1>
+              <p className="max-w-xl text-pretty text-base text-muted-foreground sm:text-lg xl:text-xl">
+                Overnight revenue, urgent customer issues, threads waiting on
+                you, and one clear next action — synced from Gmail every 15
+                minutes.
+              </p>
+              <div className="flex w-full flex-col gap-3 sm:flex-row">
+                <Link
+                  className={cn(
+                    buttonVariants({ size: "lg" }),
+                    "w-full sm:w-auto",
+                  )}
+                  href="/login"
+                >
+                  Start 14-day free trial
+                  <ArrowRight />
+                </Link>
+                <Link
+                  className={cn(
+                    buttonVariants({ size: "lg", variant: "outline" }),
+                    "w-full sm:w-auto",
+                  )}
+                  href="#how-it-works"
+                >
+                  See how it works
+                </Link>
+              </div>
+              <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
+                <span className="inline-flex items-center gap-1.5">
+                  <CheckCircle2 className="size-4" />$
+                  {SUBSCRIPTION_PRICE}/month after trial
+                </span>
+                <span className="inline-flex items-center gap-1.5">
+                  <CheckCircle2 className="size-4" />
+                  Read-only Gmail
+                </span>
+                <span className="inline-flex items-center gap-1.5">
+                  <CheckCircle2 className="size-4" />
+                  No auto-send
+                </span>
+              </div>
             </div>
-            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-muted-foreground">
-              <span className="inline-flex items-center gap-1.5">
-                <CheckCircle2 className="size-4" />
-                ${SUBSCRIPTION_PRICE}/month after trial
-              </span>
-              <span className="inline-flex items-center gap-1.5">
-                <CheckCircle2 className="size-4" />
-                Read-only Gmail
-              </span>
-              <span className="inline-flex items-center gap-1.5">
-                <CheckCircle2 className="size-4" />
-                No auto-send
-              </span>
+
+            <div className="w-full lg:py-16">
+              <HeroDashboardPreview />
             </div>
-          </div>
+          </SiteShell>
         </section>
 
         {/* Features */}
-        <section className="border-t bg-muted/30 px-4 py-16 sm:px-6 sm:py-24">
-          <div className="mx-auto w-full max-w-6xl space-y-10 sm:space-y-14">
-            <div className="mx-auto max-w-2xl space-y-3 text-center">
+        <section className="border-t bg-muted/30 py-16 sm:py-20 lg:py-28">
+          <SiteShell className="space-y-12 lg:space-y-16">
+            <div className="max-w-3xl space-y-3">
               <p className="text-sm font-medium uppercase tracking-wide text-muted-foreground">
                 The dashboard
               </p>
-              <h2 className="text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
+              <h2 className="text-balance text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
                 Four cards. Everything that matters.
               </h2>
-              <p className="text-pretty text-muted-foreground sm:text-lg">
+              <p className="max-w-2xl text-pretty text-muted-foreground sm:text-lg">
                 No folders, no filters, no inbox zero guilt. Just the signal
                 from last night, ready when you wake up.
               </p>
             </div>
-            <div className="grid gap-4 sm:grid-cols-2 lg:gap-6">
+            <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4 xl:gap-5">
               {FEATURES.map((feature) => (
                 <Card className="bg-card shadow-sm" key={feature.title}>
-                  <CardHeader className="gap-3 p-6 sm:p-7">
+                  <CardHeader className="gap-3 p-6">
                     <div className="flex size-10 items-center justify-center rounded-lg border bg-muted/50">
                       <feature.icon className="size-5" />
                     </div>
-                    <CardTitle className="text-lg sm:text-xl">
-                      {feature.title}
-                    </CardTitle>
-                    <CardDescription className="text-sm leading-relaxed sm:text-base">
+                    <CardTitle className="text-lg">{feature.title}</CardTitle>
+                    <CardDescription className="text-sm leading-relaxed">
                       {feature.description}
                     </CardDescription>
                   </CardHeader>
                 </Card>
               ))}
             </div>
-          </div>
+          </SiteShell>
         </section>
 
         <HowItWorksSection />
 
         {/* Trust */}
-        <section className="border-t bg-muted/30 px-4 py-16 sm:px-6 sm:py-24">
-          <div className="mx-auto w-full max-w-6xl space-y-10 sm:space-y-14">
-            <div className="mx-auto max-w-2xl space-y-3 text-center">
+        <section className="border-t bg-muted/30 py-16 sm:py-20 lg:py-28">
+          <SiteShell className="space-y-12 lg:space-y-16">
+            <div className="max-w-3xl space-y-3">
               <p className="text-sm font-medium uppercase tracking-wide text-muted-foreground">
                 Privacy first
               </p>
-              <h2 className="text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
+              <h2 className="text-balance text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
                 Your inbox stays yours
               </h2>
             </div>
             <div className="grid gap-4 sm:grid-cols-3 lg:gap-6">
               {TRUST_POINTS.map((point) => (
                 <Card className="bg-card shadow-sm" key={point.title}>
-                  <CardHeader className="gap-3 p-6">
+                  <CardHeader className="gap-3 p-6 lg:p-8">
                     <point.icon className="size-5 text-muted-foreground" />
-                    <CardTitle className="text-base">{point.title}</CardTitle>
+                    <CardTitle className="text-base lg:text-lg">
+                      {point.title}
+                    </CardTitle>
                     <CardDescription className="leading-relaxed">
                       {point.description}
                     </CardDescription>
@@ -205,47 +219,54 @@ export default function HomePage() {
                 </Card>
               ))}
             </div>
-          </div>
+          </SiteShell>
         </section>
 
-        {/* Pricing / CTA */}
-        <section className="border-t px-4 py-16 sm:px-6 sm:py-24">
-          <div className="mx-auto w-full max-w-lg">
-            <Card className="shadow-sm">
-              <CardHeader className="gap-4 p-6 text-center sm:p-8">
-                <Badge className="mx-auto rounded-full" variant="secondary">
+        {/* Pricing */}
+        <section className="border-t py-16 sm:py-20 lg:py-28">
+          <SiteShell>
+            <div className="grid items-center gap-10 rounded-2xl border bg-card p-6 shadow-sm sm:p-8 lg:grid-cols-[1fr_1.1fr] lg:gap-16 lg:p-12">
+              <div className="space-y-5">
+                <Badge className="rounded-full" variant="secondary">
                   14-day free trial
                 </Badge>
-                <CardTitle className="text-3xl tracking-tight sm:text-4xl">
+                <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
                   ${SUBSCRIPTION_PRICE}
-                  <span className="text-base font-normal text-muted-foreground">
+                  <span className="text-lg font-normal text-muted-foreground">
                     /month
                   </span>
-                </CardTitle>
-                <ul className="mx-auto space-y-2.5 text-left">
-                  {PRICING_FEATURES.map((feature) => (
-                    <li
-                      className="flex items-start gap-2.5 text-sm text-muted-foreground"
-                      key={feature}
-                    >
-                      <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-foreground" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
+                </h2>
+                <p className="max-w-md text-muted-foreground">
+                  Everything you need for a clear morning briefing. Cancel
+                  anytime. Refunds available within 7 days of a paid charge.
+                </p>
                 <Link
-                  className={cn(buttonVariants({ size: "lg" }), "w-full")}
+                  className={cn(
+                    buttonVariants({ size: "lg" }),
+                    "w-full sm:w-auto",
+                  )}
                   href="/login"
                 >
                   Start free trial
                   <ArrowRight />
                 </Link>
                 <p className="text-xs text-muted-foreground">
-                  No credit card required to start. Cancel anytime.
+                  No credit card required to start.
                 </p>
-              </CardHeader>
-            </Card>
-          </div>
+              </div>
+              <ul className="grid gap-3 sm:grid-cols-2">
+                {PRICING_FEATURES.map((feature) => (
+                  <li
+                    className="flex items-start gap-2.5 rounded-lg border bg-muted/30 px-4 py-3 text-sm"
+                    key={feature}
+                  >
+                    <CheckCircle2 className="mt-0.5 size-4 shrink-0" />
+                    <span className="text-muted-foreground">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </SiteShell>
         </section>
 
         <SiteFooter />

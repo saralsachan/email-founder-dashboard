@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 
 import { Logo } from "@/components/layout/logo";
+import { SiteShell } from "@/components/layout/site-shell";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -14,7 +15,7 @@ interface SiteHeaderProps {
 export function SiteHeader({ actions, showAuthLinks = false }: SiteHeaderProps) {
   return (
     <header className="sticky top-0 z-40 border-b bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/80">
-      <div className="mx-auto flex h-14 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
+      <SiteShell className="flex h-14 items-center justify-between gap-4">
         <Logo />
         <div className="flex items-center gap-1 sm:gap-2">
           {actions}
@@ -33,7 +34,7 @@ export function SiteHeader({ actions, showAuthLinks = false }: SiteHeaderProps) 
             </>
           )}
         </div>
-      </div>
+      </SiteShell>
     </header>
   );
 }
