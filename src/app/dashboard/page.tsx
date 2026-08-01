@@ -80,11 +80,11 @@ export default async function DashboardPage() {
       <SiteHeader
         actions={
           <>
-            <Badge className="hidden capitalize sm:inline-flex" variant="secondary">
+            <Badge className="hidden px-3 py-1 text-sm capitalize sm:inline-flex" variant="secondary">
               {data.profile.planStatus}
             </Badge>
             <Link
-              className={cn(buttonVariants({ variant: "ghost", size: "sm" }))}
+              className={cn(buttonVariants({ variant: "ghost", size: "default" }))}
               href="/settings"
             >
               Settings
@@ -93,14 +93,14 @@ export default async function DashboardPage() {
           </>
         }
       />
-      <PageContainer className="space-y-8">
-        <div className="flex flex-col gap-6 border-b pb-8 lg:flex-row lg:items-end lg:justify-between">
-          <div className="space-y-2">
-            <p className="text-sm font-medium text-muted-foreground">Dashboard</p>
-            <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
+      <PageContainer className="space-y-10 lg:space-y-12">
+        <div className="flex flex-col gap-8 border-b pb-10 lg:flex-row lg:items-end lg:justify-between">
+          <div className="space-y-3">
+            <p className="text-base font-medium text-muted-foreground">Dashboard</p>
+            <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
               {getGreeting()}, {displayName}
             </h1>
-            <p className="text-muted-foreground">{today}</p>
+            <p className="text-lg text-muted-foreground">{today}</p>
           </div>
           <SyncButton
             initialLastSyncedAt={data.sync.lastSyncedAt}

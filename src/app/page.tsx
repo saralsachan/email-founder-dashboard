@@ -88,9 +88,9 @@ export default function HomePage() {
   return (
     <>
       <SiteHeader showAuthLinks />
-      <main className="flex flex-1 flex-col">
+      <main className="flex w-full flex-1 flex-col">
         {/* Hero — full viewport, split on large screens */}
-        <section className="relative flex min-h-[calc(100svh-3.5rem)] items-center overflow-hidden border-b py-16 sm:py-20 lg:py-0">
+        <section className="relative flex min-h-[calc(100svh-5rem)] w-full items-center overflow-hidden border-b py-16 sm:py-20 lg:py-0">
           <div
             aria-hidden
             className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_70%_55%_at_15%_20%,oklch(0.94_0.004_286.32/0.7),transparent_55%),radial-gradient(ellipse_50%_40%_at_90%_70%,oklch(0.95_0.01_145/0.25),transparent_50%)] dark:bg-[radial-gradient(ellipse_70%_55%_at_15%_20%,oklch(0.274_0.006_286.033/0.55),transparent_55%),radial-gradient(ellipse_50%_40%_at_90%_70%,oklch(0.3_0.04_145/0.2),transparent_50%)]"

@@ -30,13 +30,13 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      className={`${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}
+      className={`${inter.variable} ${jetbrainsMono.variable} h-full w-full antialiased`}
       lang="en"
       suppressHydrationWarning
     >
-      <body className="min-h-full font-sans">
+      <body className="min-h-screen w-full font-sans">
         <ThemeProvider>
-          <div className="relative flex min-h-full flex-col">{children}</div>
+          <div className="relative flex min-h-screen w-full flex-col">{children}</div>
         </ThemeProvider>
       </body>
     </html>

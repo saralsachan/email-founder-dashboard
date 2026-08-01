@@ -68,19 +68,19 @@ export function SyncButton({
   return (
     <div
       className={cn(
-        "flex w-full flex-col gap-2 rounded-xl border bg-card p-4 shadow-sm sm:w-auto sm:min-w-72",
+        "flex w-full flex-col gap-3 rounded-xl border bg-card p-5 shadow-sm sm:w-auto sm:min-w-80",
       )}
     >
-      <div className="flex items-center justify-between gap-3">
+      <div className="flex items-center justify-between gap-4">
         <div>
-          <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+          <p className="text-sm font-medium uppercase tracking-wide text-muted-foreground">
             Sync status
           </p>
-          <p className="text-sm text-foreground">
+          <p className="text-base text-foreground sm:text-lg">
             Last synced {formatRelativeTime(lastSyncedAt)}
           </p>
         </div>
-        <Button disabled={disabled} onClick={handleSync} size="sm">
+        <Button disabled={disabled} onClick={handleSync} size="default">
           {loading ? (
             <Loader2 className="animate-spin" />
           ) : (
@@ -90,7 +90,7 @@ export function SyncButton({
         </Button>
       </div>
       {error && (
-        <p className="text-xs text-destructive">{error}</p>
+        <p className="text-sm text-destructive">{error}</p>
       )}
     </div>
   );

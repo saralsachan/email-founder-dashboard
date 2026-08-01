@@ -20,8 +20,8 @@ export function ThemeToggle() {
 
   if (!mounted) {
     return (
-      <Button aria-label="Theme" size="icon-sm" variant="ghost">
-        <Sun className="size-4 opacity-50" />
+      <Button aria-label="Theme" size="icon" variant="ghost">
+        <Sun className="size-5 opacity-50" />
       </Button>
     );
   }
@@ -33,10 +33,10 @@ export function ThemeToggle() {
     <DropdownMenu>
       <DropdownMenuTrigger
         render={
-          <Button aria-label="Toggle theme" size="icon-sm" variant="ghost" />
+          <Button aria-label="Toggle theme" size="icon" variant="ghost" />
         }
       >
-        <Icon className="size-4" />
+        <Icon className="size-5" />
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="min-w-36">
         <DropdownMenuItem onClick={() => setTheme("light")}>

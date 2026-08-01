@@ -19,7 +19,7 @@ export function SignOutButton() {
   }
 
   return (
-    <Button disabled={loading} onClick={handleSignOut} size="sm" variant="ghost">
+    <Button disabled={loading} onClick={handleSignOut} size="default" variant="ghost">
       {loading ? "Signing out…" : "Sign out"}
     </Button>
   );
